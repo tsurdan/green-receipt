@@ -161,12 +161,11 @@ def end():
     pdf_file_path = ""
     if "ceramic" in request.form.get("select1"):
         pdf_file_path = r"קבלות קרמיקה" + r"\קבלה " + str(id) + " " + str(name) + ".pdf"
-        outputStream = open(pdf_file_path, "wb")  # C:\Users\IMOE001\Desktop\אמא\קבלה ירוקה\קבלות עבר
+        outputStream = open(pdf_file_path, "wb") 
     elif "speech" in request.form.get("select1"):
         pdf_file_path = r"קבלות קלינאות תקשורת" + r"\קבלה " + str(id) + " " + str(name) + ".pdf"
-        outputStream = open(pdf_file_path, "wb")  # C:\Users\IMOE001\Desktop\אמא\קבלה ירוקה\קבלות עבר
+        outputStream = open(pdf_file_path, "wb")  
 
-    # outputStream = open(r"C:\Users\tzurd\OneDrive\Desktop\אמא\קבלה ירוקה\קבלות עבר" + r"\קבלה " + str(id) + " " + str(name) + ".pdf", "wb")
     output.write(outputStream)
     outputStream.close()
 
@@ -175,15 +174,15 @@ def end():
         # dir_path = os.path.dirname(os.path.realpath(__file__))
         # pdf_file_path = os.path.join(dir_path, pdf_file_path) # absulute path
         if "ceramic" in request.form.get("select1"):
-            subject = "אפרת דנינו - קרמיקה - קבלה מספר " + str(id)
+            subject = "קרמיקה - קבלה מספר " + str(id)
         elif "speech" in request.form.get("select1"):
-            subject ="אפרת דנינו - קלינאות תקשורת - קבלה מספר " + str(id)
+            subject ="קלינאות תקשורת - קבלה מספר" + str(id)
         body = "הקבלה מצורפת"
         emails = [email]
         sendToSelf = request.form.get("sendToSelf")
         if sendToSelf == "on":
-            emails.append('efratda1978@gmail.com')
-        send_email('receiptsgreen33@gmail.com', 'sojw dccy jexf vbgu', emails, subject, body, pdf_file_path, id)
+            emails.append('e@gmail.com')
+        send_email('re@gmail.com', '', emails, subject, body, pdf_file_path, id)
     threading.Timer(10, lambda: os._exit(0)).start()
     return render_template("end.html")
 
